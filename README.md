@@ -21,5 +21,5 @@ find /path/to/a -type f -name "*.jsonl.checked" -exec sh -c 'mv "$0" "${0%.*}"' 
 ```
 需要把所有的err文件移动，可以使用：
 ```
-find /path/to/a -type f -name "*.json.err" -exec mv {} ./ \;
+find /path/to/a -type f -name "*.jsonl.err" -exec mv {} ./ \;
 ```
