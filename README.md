@@ -7,8 +7,11 @@
 python3 json_check.py /path/jsonl/
 ```
 
-**输入**：需要解析的jsonl文件目录（会递归遍历）
-**输出**：在jsonl文件同目录输出 .jsonl.checked (验证通过的行) 和 .jsonl.err (验证失败的行)
+**输入**：需要解析的jsonl文件目录（会递归遍历） 
+
+**输出**：在jsonl文件同目录输出文件:
+ - .jsonl.checked (验证通过的行) 
+ - .jsonl.err (验证失败的行)
 
 执行日志在 json_check.log
 
