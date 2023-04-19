@@ -27,14 +27,19 @@ def recursive_parse_jsonl_files(input_path):
 
 
 def parse_jsonl_file(input_file, checked_file, err_file):
+    checked_set = {}
     with open(input_file, 'r') as f, open(checked_file, 'w') as c, open(err_file, 'w') as ef:
         for line in tqdm(f):
             try:
-                json.loads(line)  # 解析 JSON 数据
-                c.write(line)  # 写入 checked 文件
+                line = line.strip()
+                if line in checked_set:
+                    continue
+                json.loads(line)
+                c.write(line + "\n")
+                checked_set[line] = None
             except Exception as e:
-                logging.error(f"Error occurred while parsing {input_file} at line: {line.strip()}. Exception: {e}")
-                ef.write(line)  # 写入 err 文件
+                logging.error(f"Error occurred while parsing {input_file} at line: {line}. Exception: {e}")
+                ef.write(line + "\n")
 
 
 if __name__ == '__main__':
