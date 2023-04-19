@@ -4,8 +4,14 @@
 
  **使用**：
 ```
-python3 json_check.py /path/jsonl/
+python3 json_check.py /path/jsonl/ 
 ```
+
+支持按照属性过滤清洗数据：
+```
+python3 json_check.py /path/jsonl/ --property "id > 100" "id < 106"
+```
+以上命令会把json中 id > 100 and id < 106 的记录保留，其他记录放入err中。目前只是4种运算符 > 、< 、!= 、== ，其中大小判断为数值，等于判断为字符串，也可以增加字符串包含或正则处理。
 
 **输入**：需要解析的jsonl文件目录（会递归遍历） 
 
