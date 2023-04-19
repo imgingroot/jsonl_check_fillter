@@ -17,6 +17,11 @@ def recursive_parse_jsonl_files(input_path, properties):
                 input_file = os.path.join(root, file_name)
                 checked_file = os.path.join(root, f"{file_name}.checked")
                 err_file = os.path.join(root, f"{file_name}.err")
+                
+                start = int(file_name.split(".")[0].split("-")[0])
+                end = int(file_name.split(".")[0].split("-")[1])
+                properties =[f"id > {start}",f"id < {end}"]
+
                 try:
                     logging.info(f"Parsing jsonl files: {input_file}")
                     parse_jsonl_file(input_file, properties, checked_file, err_file)
