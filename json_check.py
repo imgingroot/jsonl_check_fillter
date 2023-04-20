@@ -24,7 +24,7 @@ def recursive_parse_jsonl_files(input_path, properties):
                     logging.exception(f"Error occurred while processing the file: {input_file}. Exception: {e}")
 def parse_jsonl_file(input_file, properties, checked_file, err_file):
     checked_set = set()
-    with open(input_file, 'r') as f, open(checked_file, 'w') as c, open(err_file, 'w') as ef:
+    with open(input_file, 'r', encoding='utf-8') as f, open(checked_file, 'w', encoding='utf-8') as c, open(err_file, 'w', encoding='utf-8') as ef:
         for line in tqdm(f):
             try:
                 line = line.strip()
